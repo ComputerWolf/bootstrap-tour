@@ -265,6 +265,7 @@
             $element = $('body');
           }
           $element.popover('destroy').removeClass("tour-" + _this._options.name + "-element tour-" + _this._options.name + "-" + i + "-element");
+          $element.data('bs.popover', null);
           if (step.reflex) {
             $(step.reflexElement).removeClass('tour-step-element-reflex').off("" + (_this._reflexEvent(step.reflex)) + ".tour-" + _this._options.name);
           }
@@ -775,6 +776,9 @@
     Tour.prototype._hideBackground = function() {
       if (this.backdrop) {
         this.backdrop.remove();
+        if ($('.tour-backdrop').length) {
+          $('.tour-backdrop').remove();
+        }
         this.backdrop.overlay = null;
         return this.backdrop.backgroundShown = false;
       }

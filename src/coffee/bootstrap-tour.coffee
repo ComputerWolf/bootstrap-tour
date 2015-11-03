@@ -650,6 +650,8 @@
     _hideBackground: ->
       if @backdrop
         @backdrop.remove()
+        if $('.tour-backdrop').length
+          $('.tour-backdrop').remove()
         @backdrop.overlay = null
         @backdrop.backgroundShown = false
 
